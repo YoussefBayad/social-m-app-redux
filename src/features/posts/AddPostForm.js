@@ -13,14 +13,13 @@ export const AddPostForm = () => {
   const onContentChanged = (e) => setContent(e.target.value)
   const onSavPostClicked = (e) => {
     if (title && content) {
-      dispatch({
-        type: 'posts/postAdded',
-        payload: {
+      dispatch(
+        postAdded({
           id: nanoid(),
           title,
           content,
-        },
-      })
+        })
+      )
 
       setTitle('')
       setContent('')
